@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:forfait_mo50/Profile/profile.dart';
 import './Accueil/accueil.dart';
+import 'Loginpage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
          primarySwatch: createMaterialColor(const Color.fromARGB(235, 69, 199, 177)),
       ),
-      home: const MyHomePage(title: 'Forfait'),
+      home: const LoginPage(),
     );
   }
 }
