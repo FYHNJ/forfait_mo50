@@ -14,30 +14,52 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Login Page'),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: 'Username',
+      body: Center(  // Added Center
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,  // Set mainAxisAlignment to center
+            crossAxisAlignment: CrossAxisAlignment.center,  // Change CrossAxisAlignment.start to CrossAxisAlignment.center
+            children: [
+              Transform.translate(  // Added Transform.translate
+                offset: const Offset(0, -90),  // Upwards by 50 units
+                child: Transform.scale(  // Added Transform.scale
+                  scale: 0.85,  // Scale by 0.5 times
+                  child: Image.asset('assets/images/2.png'),  // Your image
+                ),
               ),
-            ),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: 'Password',
+              Transform.translate(  // Added Transform.translate
+                offset: const Offset(0, -50),  // Upwards by 50 units
+                child: Transform.scale(  // Added Transform.scale
+                  scale: 2,  // Scale by 1.5 times
+                  child: const Text('Connectez-vous'),
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Perform login action
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const MyHomePage(title: 'Forfait')));
-              },
-              child: const Text('Login'),
-            ),
-          ],
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                ),
+              ),
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                ),
+              ),
+              Transform.translate(  // Added Transform.translate
+                offset: const Offset(0, 50),  // Downwards by 50 units
+                child: Transform.scale(  // Added Transform.scale
+                  scale: 1.5,  // Scale by 1.5 times
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Perform login action
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const MyHomePage(title: 'Forfait')));
+                    },
+                    child: const Text('Connexion'),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
