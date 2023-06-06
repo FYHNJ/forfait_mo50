@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:forfait_mo50/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -99,9 +100,27 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 ),
               ),
               Row(
-                children: const [
-                  Spacer(),  // Fill remaining space
-                  Text('Mot de passe oublie'),  // Your text
+                children: [
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () async {
+                      const url='https://www.forfaio.fr';
+                      // ignore: deprecated_member_use
+                      if (await canLaunch(url)){
+                        // ignore: deprecated_member_use
+                        await launch(url);
+                      }else{
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: const Text(
+                      'Mot de passe oublié',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
@@ -121,10 +140,25 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 ),
               ),
               const SizedBox(height: 120), 
-              const Text(
-                'Texte? Lien inscription',
-                textAlign: TextAlign.center,  // Center the text
-                style: TextStyle(fontSize: 20), 
+              GestureDetector(
+                onTap: () async {
+                  const url='https://www.forfaio.fr';
+                  // ignore: deprecated_member_use
+                  if (await canLaunch(url)){
+                    // ignore: deprecated_member_use
+                    await launch(url);
+                  }else{
+                   throw 'Could not launch $url';
+                  }
+                },
+                child: 
+                  const Text('Lien inscription',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    decoration: TextDecoration.underline,
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ],
           ),
