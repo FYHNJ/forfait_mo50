@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:forfait_mo50/main.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:user_library/user_library.dart'; 
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,11 +18,15 @@ class _LoginPageState extends State<LoginPage>
   late TextEditingController _passwordController;
   String? _errorMessage;
 
+  late UserAuthenticator authenticator;
+
   @override
   void initState() {
     super.initState();
     _usernameController = TextEditingController();
     _passwordController = TextEditingController();
+
+    authenticator = UserAuthenticator();
   }
 
   @override
@@ -35,6 +40,7 @@ class _LoginPageState extends State<LoginPage>
     String username = _usernameController.text;
     String password = _passwordController.text;
 
+
     List<String> errors = [];
 
     if (username.isEmpty) {
@@ -43,10 +49,6 @@ class _LoginPageState extends State<LoginPage>
 
     if (password.isEmpty) {
       errors.add('please enter password');
-    }
-
-    if (username != 'forfaio' || password != 'forfaio') {
-      errors.add('wrong user name or password');
     }
 
     if (errors.isNotEmpty) {
