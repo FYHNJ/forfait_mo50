@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                   const Spacer(),
                   GestureDetector(
                     onTap: () async {
-                      const url='https://www.forfaio.fr';
+                      const url='https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
                       // ignore: deprecated_member_use
                       if (await canLaunch(url)){
                         // ignore: deprecated_member_use
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
               const SizedBox(height: 120), 
               GestureDetector(
                 onTap: () async {
-                  const url='https://www.forfaio.fr';
+                  const url='https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
                   // ignore: deprecated_member_use
                   if (await canLaunch(url)){
                     // ignore: deprecated_member_use
