@@ -39,30 +39,45 @@ class _LoginPageState extends State<LoginPage>
   void _login() {
     String username = _usernameController.text;
     String password = _passwordController.text;
-
-
     List<String> errors = [];
+    bool isAuthenticated = authenticator.authenticate(username, password);
 
-    if (username.isEmpty) {
-      errors.add('please enter user name');
+    if (isAuthenticated) {
+      User? user;
+      try {
+        user = authenticator.users.firstWhere(
+          (u) => u.userName == username && u.password == password,
+        );
+      } catch (e) {
+        user = null;
+      }
+
+      if (user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyHomePage(title: 'Forfait',user: user!),
+          ),
+        );
+      }
+    } else {
+      // 处理登录失败的情况
+      // 可以显示错误消息或者其他逻辑
+      if (username.isEmpty) {
+        errors.add('please enter user name');
+      }
+
+      if (password.isEmpty) {
+        errors.add('please enter password');
+      }
+
+      if (errors.isNotEmpty) {
+        setState(() {
+          _errorMessage = errors.join(',\n ');
+        });
+        return;
+      }
     }
-
-    if (password.isEmpty) {
-      errors.add('please enter password');
-    }
-
-    if (errors.isNotEmpty) {
-      setState(() {
-        _errorMessage = errors.join(',\n ');
-      });
-      return;
-    }
-
-    // 登录成功
-    User user = User('username', 'password', 0.0);
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-  builder: (context) => MyHomePage(title: 'Forfait', user: user),
-));
   }
 
   @override
