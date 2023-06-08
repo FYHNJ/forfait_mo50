@@ -59,10 +59,10 @@ class _LoginPageState extends State<LoginPage>
     }
 
     // 登录成功
-    Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) => const MyHomePage(title: 'Forfait')));
+    User user = User('username', 'password', 0.0);
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+  builder: (context) => MyHomePage(title: 'Forfait', user: user),
+));
   }
 
   @override

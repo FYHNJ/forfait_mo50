@@ -3,8 +3,9 @@ library user_library;
 class User {
   final String username;
   final String password;
+  double waterUsed;
 
-  User(this.username, this.password);
+  User(this.username, this.password,this.waterUsed);
 }
 
 class UserAuthenticator {
@@ -12,8 +13,8 @@ class UserAuthenticator {
 
   UserAuthenticator()
     : users = [
-        User('forfaio1', 'forfaio1'),
-        User('forfaio2', 'forfaio2'),
+        User('forfaio1', 'forfaio1',0.0),
+        User('forfaio2', 'forfaio2',0.0),
       ];
 
   bool authenticate(String username, String password) {

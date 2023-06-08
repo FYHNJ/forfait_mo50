@@ -1,15 +1,19 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:user_library/user_library.dart'; 
 
 class Accueil extends StatefulWidget {
-  const Accueil({Key? key}) : super(key: key);
+  final User user;
+
+  const Accueil({Key? key, required this.user}) : super(key: key);
 
   @override
   _AccueilState createState() => _AccueilState();
 }
 
 class _AccueilState extends State<Accueil> {
+  final double _totalWater = 100.0;
 
   @override
   void initState() {
@@ -119,6 +123,14 @@ class _AccueilState extends State<Accueil> {
                 ),
               ],
             ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 410),
+          child: LinearProgressIndicator(
+            value: widget.user.waterUsed / _totalWater, // the ratio of water used
+            color: Colors.blue,
+            backgroundColor: Colors.grey[200],
           ),
         ),
       ],
