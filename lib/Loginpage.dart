@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:forfait_mo50/main.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:user_library/user_library.dart'; 
+import 'package:user_library/user_library.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,6 +19,8 @@ class _LoginPageState extends State<LoginPage>
   String? _errorMessage;
 
   late UserAuthenticator authenticator;
+
+  bool _isPasswordVisible = false;
 
   @override
   void initState() {
@@ -56,28 +58,28 @@ class _LoginPageState extends State<LoginPage>
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => MyHomePage(title: 'Forfait',user: user!),
+            builder: (context) => MyHomePage(title: 'Forfait', user: user!),
           ),
         );
       }
-    } else {
-      // 处理登录失败的情况
-      // 可以显示错误消息或者其他逻辑
-      if (username.isEmpty) {
-        errors.add('please enter user name');
-      }
-
-      if (password.isEmpty) {
-        errors.add('please enter password');
-      }
-
-      if (errors.isNotEmpty) {
-        setState(() {
-          _errorMessage = errors.join(',\n ');
-        });
-        return;
-      }
     }
+    // 处理登录失败的情况
+    // 可以显示错误消息或者其他逻辑
+    if (username.isEmpty) {
+      errors.add('please enter user name');
+    }
+
+    if (password.isEmpty) {
+      errors.add('please enter password');
+    }
+
+    if (errors.isEmpty) {
+      errors.add('invalid username or password');
+    }
+
+    setState(() {
+      _errorMessage = errors.join(',\n ');
+    });
   }
 
   @override
@@ -121,8 +123,25 @@ class _LoginPageState extends State<LoginPage>
               ),
               TextField(
                 controller: _passwordController,
-                decoration: const InputDecoration(
+                obscureText:
+                    !_isPasswordVisible, // Make the text obscured unless _isPasswordVisible is true
+                decoration: InputDecoration(
                   labelText: 'Password',
+                  // Add a suffix icon
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      // Change the icon based on the password visibility
+                      _isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
+                    // Add an onPressed function to change the visibility when pressed
+                    onPressed: () {
+                      setState(() {
+                        _isPasswordVisible = !_isPasswordVisible;
+                      });
+                    },
+                  ),
                 ),
               ),
               Row(
