@@ -11,8 +11,8 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
-  
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
   late TextEditingController _usernameController;
   late TextEditingController _passwordController;
   String? _errorMessage;
@@ -57,38 +57,47 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     }
 
     // 登录成功
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const MyHomePage(title: 'Forfait')));
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const MyHomePage(title: 'Forfait')));
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(  // Added Center
+      body: Center(
+        // Added Center
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,  // Set mainAxisAlignment to center
-            crossAxisAlignment: CrossAxisAlignment.center,  // Change CrossAxisAlignment.start to CrossAxisAlignment.center
+            mainAxisAlignment:
+                MainAxisAlignment.center, // Set mainAxisAlignment to center
+            crossAxisAlignment: CrossAxisAlignment
+                .center, // Change CrossAxisAlignment.start to CrossAxisAlignment.center
             children: [
               const SizedBox(height: 100),
-              Transform.translate(  // Added Transform.translate
-                offset: const Offset(0, -90),  // Upwards by 50 units
-                child: Transform.scale(  // Added Transform.scale
-                  scale: 0.85,  // Scale by 0.5 times
-                  child: Image.asset('assets/images/2.png'),  // Your image
+              Transform.translate(
+                // Added Transform.translate
+                offset: const Offset(0, -90), // Upwards by 50 units
+                child: Transform.scale(
+                  // Added Transform.scale
+                  scale: 0.85, // Scale by 0.5 times
+                  child: Image.asset('assets/images/2.png'), // Your image
                 ),
               ),
-              Transform.translate(  // Added Transform.translate
-                offset: const Offset(0, -50),  // Upwards by 50 units
-                child: Transform.scale(  // Added Transform.scale
-                  scale: 2,  // Scale by 1.5 times
+              Transform.translate(
+                // Added Transform.translate
+                offset: const Offset(0, -50), // Upwards by 50 units
+                child: Transform.scale(
+                  // Added Transform.scale
+                  scale: 2, // Scale by 1.5 times
                   child: const Text('Connectez-vous'),
                 ),
               ),
               const SizedBox(height: 40),
               TextField(
-                 controller: _usernameController,
+                controller: _usernameController,
                 decoration: const InputDecoration(
                   labelText: 'Username',
                 ),
@@ -104,12 +113,13 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                   const Spacer(),
                   GestureDetector(
                     onTap: () async {
-                      const url='https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
+                      const url =
+                          'https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
                       // ignore: deprecated_member_use
-                      if (await canLaunch(url)){
+                      if (await canLaunch(url)) {
                         // ignore: deprecated_member_use
                         await launch(url);
-                      }else{
+                      } else {
                         throw 'Could not launch $url';
                       }
                     },
@@ -124,35 +134,38 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 ],
               ),
               const SizedBox(height: 20),
-               if (_errorMessage != null) 
+              if (_errorMessage != null)
                 Text(
                   'Error: $_errorMessage',
                   style: const TextStyle(color: Colors.red),
                 ),
-              Transform.translate(  // Added Transform.translate
-                offset: const Offset(0, 50),  // Downwards by 50 units
-                child: Transform.scale(  // Added Transform.scale
-                  scale: 1.5,  // Scale by 1.5 times
+              Transform.translate(
+                // Added Transform.translate
+                offset: const Offset(0, 50), // Downwards by 50 units
+                child: Transform.scale(
+                  // Added Transform.scale
+                  scale: 1.5, // Scale by 1.5 times
                   child: ElevatedButton(
                     onPressed: _login,
                     child: const Text('Connexion'),
                   ),
                 ),
               ),
-              const SizedBox(height: 120), 
+              const SizedBox(height: 120),
               GestureDetector(
                 onTap: () async {
-                  const url='https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
+                  const url =
+                      'https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
                   // ignore: deprecated_member_use
-                  if (await canLaunch(url)){
+                  if (await canLaunch(url)) {
                     // ignore: deprecated_member_use
                     await launch(url);
-                  }else{
-                   throw 'Could not launch $url';
+                  } else {
+                    throw 'Could not launch $url';
                   }
                 },
-                child: 
-                  const Text('Lien inscription',
+                child: const Text(
+                  'Lien inscription',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     decoration: TextDecoration.underline,

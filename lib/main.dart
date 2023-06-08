@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Forfait',
       theme: ThemeData(
-         primarySwatch: createMaterialColor(const Color.fromARGB(235, 69, 199, 177)),
+        primarySwatch:
+            createMaterialColor(const Color.fromARGB(235, 69, 199, 177)),
       ),
       home: const LoginPage(),
     );
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -53,32 +54,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(length:2, child:Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-
-      body: const TabBarView(children: <Widget>[
-        Accueil(),
-        Profile(),
-      ],
-      ),
-
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(color:Color.fromARGB(255, 236, 236, 236)),
-        height: 70,
-        child: const TabBar(
-          labelStyle: TextStyle(height: 0,fontSize: 15),
-          tabs:<Widget>[
-            Tab(icon:Icon(Icons.home),text:'Accueil'),
-            Tab(icon:Icon(Icons.person),text:'Profile')
-          ]
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: const TabBarView(
+          children: <Widget>[
+            Accueil(),
+            Profile(),
+          ],
+        ),
+        bottomNavigationBar: Container(
+          decoration:
+              const BoxDecoration(color: Color.fromARGB(255, 236, 236, 236)),
+          height: 70,
+          child: const TabBar(
+              labelStyle: TextStyle(height: 0, fontSize: 15),
+              tabs: <Widget>[
+                Tab(icon: Icon(Icons.home), text: 'Accueil'),
+                Tab(icon: Icon(Icons.person), text: 'Profile')
+              ]),
         ),
       ),
-    )
     );
   }
 }
