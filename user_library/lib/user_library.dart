@@ -13,8 +13,8 @@ class UserAuthenticator {
 
   UserAuthenticator()
     : users = [
-        User('forfaio1', 'forfaio1',0.0),
-        User('forfaio2', 'forfaio2',0.0),
+        User('forfaio1', 'forfaio1',3.0),
+        User('forfaio2', 'forfaio2',5.0),
       ];
 
   bool authenticate(String username, String password) {
