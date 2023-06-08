@@ -59,10 +59,12 @@ class _AccueilState extends State<Accueil> {
         Positioned(
             top: 25,
             left: 165,
-            child: Image.asset(
-              'assets/images/1.jpeg',
-              width: 70,
-              height: 70,
+            child: Center(
+              child: Image.asset(
+                'assets/images/1.jpeg',
+                width: 70,
+                height: 70,
+              ),
             )),
         Padding(
           // Padding widget adds empty space

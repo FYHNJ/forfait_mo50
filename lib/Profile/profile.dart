@@ -13,16 +13,19 @@ class _Profile extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text('Profile'),
+      children: <Widget>[
+        Image.asset(
+          'assets/images/MarcDupont.jpg',
+          width: 80,
+          height: 80,
+        ),
         ElevatedButton(
           onPressed: () {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const LoginPage()));
           },
           child: const Text('Logout'),
-        )
+        ),
       ],
     );
   }
