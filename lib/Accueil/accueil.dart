@@ -210,8 +210,9 @@ class _AccueilState extends State<Accueil> {
                                     child: SizedBox(
                                       height: 40, // 设定进度条的高度
                                       child: LinearProgressIndicator(
-                                        value:
-                                            widget.user.waterUsed / _totalWater,
+                                        value: (_totalWater -
+                                                widget.user.waterUsed) /
+                                            _totalWater,
                                         backgroundColor:
                                             const Color.fromARGB(255, 3, 3, 58),
                                         valueColor:
