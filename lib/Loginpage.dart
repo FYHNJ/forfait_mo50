@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:forfait_mo50/main.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:user_library/user_library.dart'; 
+import 'package:user_library/user_library.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -42,27 +42,8 @@ class _LoginPageState extends State<LoginPage>
     List<String> errors = [];
     bool isAuthenticated = authenticator.authenticate(username, password);
 
-    if (isAuthenticated) {
-      User? user;
-      try {
-        user = authenticator.users.firstWhere(
-          (u) => u.userName == username && u.password == password,
-        );
-      } catch (e) {
-        user = null;
-      }
-
-      if (user != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MyHomePage(title: 'Forfait',user: user!),
-          ),
-        );
-      }
-    } else {
-      // 处理登录失败的情况
-      // 可以显示错误消息或者其他逻辑
+    if (username.isEmpty || password.isEmpty) {
+      // 处理输入为空的情况
       if (username.isEmpty) {
         errors.add('please enter user name');
       }
@@ -71,12 +52,39 @@ class _LoginPageState extends State<LoginPage>
         errors.add('please enter password');
       }
 
-      if (errors.isNotEmpty) {
-        setState(() {
-          _errorMessage = errors.join(',\n ');
-        });
-        return;
+      setState(() {
+        _errorMessage = errors.join(',\n ');
+      });
+      return;
+    }
+
+    if (isAuthenticated) {
+      User? user;
+      try {
+        user = authenticator.users.firstWhere(
+          (u) => u.userName == username && u.password == password,
+        );
+      } catch (e) {
+        user = null;
+        _errorMessage = 'Invalid username or password';
       }
+
+      if (user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyHomePage(title: 'Forfait', user: user!),
+          ),
+        );
+      } else {
+        setState(() {
+          _errorMessage = 'Invalid username or password';
+        });
+      }
+    } else {
+      setState(() {
+        _errorMessage = 'Invalid username or password';
+      });
     }
   }
 
