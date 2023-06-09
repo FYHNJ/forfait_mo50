@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:user_library/user_library.dart'; 
+import 'package:user_library/user_library.dart';
 
 class Accueil extends StatefulWidget {
   final User user;
@@ -29,17 +29,19 @@ class _AccueilState extends State<Accueil> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        
         Positioned(
-            top: 25,
-            left: 165,
-            child: Center(
-              child: Image.asset(
-                'assets/images/1.jpeg',
-                width: 70,
-                height: 70,
-              ),
-            )),
+          top: 25,
+          left: 0,
+          right: 0,
+          child: Align(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'assets/images/1.jpeg',
+              width: 70,
+              height: 70,
+            ),
+          ),
+        ),
         Padding(
           // Padding widget adds empty space
           padding:
@@ -125,18 +127,112 @@ class _AccueilState extends State<Accueil> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 410),
-          child: LinearProgressIndicator(
-            value: widget.user.waterUsed / _totalWater, // the ratio of water used
-            color: Colors.blue,
-            backgroundColor: Colors.grey[200],
-          ),
-        ),
+        Transform.translate(
+            offset: const Offset(0, -50),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 0),
+              child: Center(
+                child: Card(
+                  // Card 1
+
+                  elevation: 5, // shadow
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width *
+                        0.9, // 90% of screen width
+                    height: 350,
+                    child: Column(
+                      children: [
+                        Container(
+                          // Green navigation bar
+                          width: 370,
+                          height: 50,
+                          padding: const EdgeInsets.all(10),
+                          decoration: const BoxDecoration(
+                            color: Color.fromARGB(235, 69, 199, 177),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 17),
+                        const Text(
+                          'Ma consommation',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 33,
+                          ),
+                        ),
+                        const Text(
+                          'du jour',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 33,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Card(
+                            // Card 2
+                            color: Colors.grey[200],
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: const Text(
+                                      'Litres restants:',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 22,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: const Text(
+                                      '150',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 40,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 17),
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(20)), // 设定圆角半径
+                                    child: SizedBox(
+                                      height: 40, // 设定进度条的高度
+                                      child: LinearProgressIndicator(
+                                        value:
+                                            widget.user.waterUsed / _totalWater,
+                                        backgroundColor:
+                                            const Color.fromARGB(255, 3, 3, 58),
+                                        valueColor:
+                                            const AlwaysStoppedAnimation<Color>(
+                                                Color.fromRGBO(
+                                                    219, 128, 17, 1)),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ))
       ],
     );
   }
 }
-
-
-
