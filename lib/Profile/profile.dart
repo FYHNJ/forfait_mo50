@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:user_library/user_library.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  final User user;
+  const Profile({Key? key, required this.user}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -20,7 +22,7 @@ class _Profile extends State<Profile> {
           child: Align(
             alignment: Alignment.center,
             child: Image.asset(
-              'assets/images/MarcDupont.jpeg',
+              'assets/images/${widget.user.userName}.jpeg',
               width: 80,
               height: 80,
             ),
@@ -31,9 +33,10 @@ class _Profile extends State<Profile> {
           child: Padding(
             padding:
                 EdgeInsets.only(top: MediaQuery.of(context).padding.top + 131),
-            child: const Text(
-              'Marc Dupont',
-              style: TextStyle(
+            child: Text(
+              widget.user.userName,
+              semanticsLabel: widget.user.userFname,
+              style: const TextStyle(
                 fontSize: 34,
                 color: Color.fromRGBO(0, 40, 85, 1),
               ),

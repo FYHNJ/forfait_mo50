@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: TabBarView(
           children: <Widget>[
             Accueil(user: widget.user),
-            const Profile(),
+            Profile(user: widget.user),
           ],
         ),
         bottomNavigationBar: Container(

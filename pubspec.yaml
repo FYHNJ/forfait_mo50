@@ -68,7 +68,8 @@ flutter:
      - assets/images/1.jpeg
      - assets/images/2.png
      - assets/images/facture.jpeg
-     - assets/images/MarcDupont.jpeg
+     - assets/images/Marc.jpeg
+     - assets/images/Emma.jpeg
      - assets/images/logout.jpeg
      - assets/images/arrow.jpeg
   
