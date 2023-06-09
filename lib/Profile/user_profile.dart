@@ -84,10 +84,11 @@ class _UserProfilePageState extends State<UserProfilePage> {
               children: [
                 Container(
                   height: 56,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      top: BorderSide(color: Colors.black, width: 1),
+                      left: BorderSide(color: Colors.black, width: 1),
+                      right: BorderSide(color: Colors.black, width: 1),
                     ),
                   ),
                   child: Row(
@@ -122,10 +123,11 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 ),
                 Container(
                   height: 56,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      top: BorderSide(color: Colors.black, width: 1),
+                      left: BorderSide(color: Colors.black, width: 1),
+                      right: BorderSide(color: Colors.black, width: 1),
                     ),
                   ),
                   child: Row(
@@ -160,10 +162,11 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 ),
                 Container(
                   height: 56,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      top: BorderSide(color: Colors.black, width: 1),
+                      left: BorderSide(color: Colors.black, width: 1),
+                      right: BorderSide(color: Colors.black, width: 1),
                     ),
                   ),
                   child: Row(
