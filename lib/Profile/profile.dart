@@ -36,17 +36,29 @@ class _Profile extends State<Profile> {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top + 131),
-                child: Text(
-                  widget.user.userName,
-                  semanticsLabel: widget.user.userFname,
-                  style: const TextStyle(
-                    fontSize: 34,
-                    color: Color.fromRGBO(0, 40, 85, 1),
-                  ),
-                ),
-              ),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).padding.top + 131),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        widget.user.userName,
+                        semanticsLabel: widget.user.userFname,
+                        style: const TextStyle(
+                          fontSize: 34,
+                          color: Color.fromRGBO(0, 40, 85, 1),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        widget.user.userFname,
+                        style: const TextStyle(
+                          fontSize: 34,
+                          color: Color.fromRGBO(0, 40, 85, 1),
+                        ),
+                      ),
+                    ],
+                  )),
             ),
             Align(
               alignment: Alignment.topCenter,

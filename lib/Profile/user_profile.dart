@@ -12,6 +12,29 @@ class UserProfilePage extends StatefulWidget {
 }
 
 class _UserProfilePageState extends State<UserProfilePage> {
+  final TextEditingController _nomController = TextEditingController();
+  final TextEditingController _prenomController = TextEditingController();
+  final TextEditingController _mailController = TextEditingController();
+  final TextEditingController _nbController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _nomController.text = widget.user.userFname;
+    _prenomController.text = widget.user.userName;
+    _mailController.text = widget.user.mail;
+    _nbController.text = widget.user.userNumber;
+  }
+
+  @override
+  void dispose() {
+    _nomController.dispose();
+    _prenomController.dispose();
+    _mailController.dispose();
+    _nbController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +63,168 @@ class _UserProfilePageState extends State<UserProfilePage> {
           },
         ),
       ),
-      body: Container(
-          // 编辑用户个人信息的界面内容
-          // ...
-          ),
+      body: Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top + 80,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              height: 56,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  const Text(
+                    'Nom              ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(width: 50),
+                  Expanded(
+                    child: TextFormField(
+                      controller: _nomController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: widget.user.userFname,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          widget.user.userFname = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 56,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  const Text(
+                    'Prénom         ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(width: 50),
+                  Expanded(
+                    child: TextFormField(
+                      controller: _prenomController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: widget.user.userName,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          widget.user.userName = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 56,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  const Text(
+                    'Email             ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(width: 50),
+                  Expanded(
+                    child: TextFormField(
+                      controller: _mailController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: widget.user.mail,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          widget.user.mail = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 56,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  const Text(
+                    'Télephone     ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(width: 50),
+                  Expanded(
+                    child: TextFormField(
+                      controller: _nbController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: widget.user.userNumber,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          widget.user.userNumber = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
