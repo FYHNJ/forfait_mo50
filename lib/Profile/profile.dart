@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_library/user_library.dart';
 import 'package:forfait_mo50/Loginpage.dart';
+import 'package:forfait_mo50/Profile/user_profile.dart';
 
 class Profile extends StatefulWidget {
   final User user;
@@ -50,7 +51,14 @@ class _Profile extends State<Profile> {
             padding:
                 EdgeInsets.only(top: MediaQuery.of(context).padding.top + 206),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UserProfilePage(),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
