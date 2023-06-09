@@ -85,25 +85,36 @@ class _Profile extends State<Profile> {
                   ),
                   child: Row(
                     children: [
-                      Image.asset(
-                        'assets/images/facture.jpeg',
-                        width: 24,
-                        height: 24,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 24.0), // 设置左边距
+                        child: Image.asset(
+                          'assets/images/facture.jpeg',
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Voir mes factures',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 54.0), // 设置左边距
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Voir mes factures',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
-                      Image.asset(
-                        'assets/images/arrow.jpeg',
-                        width: 24,
-                        height: 24,
+                      const Spacer(), // 占据剩余空间
+                      // 第三个元素，与屏幕右边缘的距离为 24
+                      Padding(
+                        padding: const EdgeInsets.only(right: 24),
+                        child: Image.asset(
+                          'assets/images/arrow.jpeg',
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
                     ],
                   ),
@@ -124,25 +135,36 @@ class _Profile extends State<Profile> {
                   ),
                   child: Row(
                     children: [
-                      Image.asset(
-                        'assets/images/1.jpeg',
-                        width: 24,
-                        height: 24,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 24.0), // 设置左边距
+                        child: Image.asset(
+                          'assets/images/1.jpeg',
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Mon forfait',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 54.0), // 设置左边距
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Mon forfait',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
-                      Image.asset(
-                        'assets/images/arrow.jpeg',
-                        width: 24,
-                        height: 24,
+                      const Spacer(), // 占据剩余空间
+                      // 第三个元素，与屏幕右边缘的距离为 24
+                      Padding(
+                        padding: const EdgeInsets.only(right: 24),
+                        child: Image.asset(
+                          'assets/images/arrow.jpeg',
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
                     ],
                   ),
@@ -157,25 +179,36 @@ class _Profile extends State<Profile> {
                   ),
                   child: Row(
                     children: [
-                      Image.asset(
-                        'assets/images/logout.jpeg',
-                        width: 24,
-                        height: 24,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 24.0), // 设置左边距
+                        child: Image.asset(
+                          'assets/images/logout.jpeg',
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Déconnexion',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 54.0), // 设置左边距
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Déconnexion',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
-                      Image.asset(
-                        'assets/images/arrow.jpeg',
-                        width: 24,
-                        height: 24,
+                      const Spacer(), // 占据剩余空间
+                      // 第三个元素，与屏幕右边缘的距离为 24
+                      Padding(
+                        padding: const EdgeInsets.only(right: 24),
+                        child: Image.asset(
+                          'assets/images/arrow.jpeg',
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
                     ],
                   ),
