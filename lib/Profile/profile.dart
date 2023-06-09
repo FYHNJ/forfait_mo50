@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user_library/user_library.dart';
+import 'package:forfait_mo50/Loginpage.dart';
 
 class Profile extends StatefulWidget {
   final User user;
@@ -193,7 +194,14 @@ class _Profile extends State<Profile> {
                       Padding(
                         padding: const EdgeInsets.only(left: 54.0), // 设置左边距
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LoginPage(),
+                              ),
+                            );
+                          },
                           child: const Text(
                             'Déconnexion',
                             style: TextStyle(
@@ -233,7 +241,7 @@ class _Profile extends State<Profile> {
                 backgroundColor: const Color.fromRGBO(0, 40, 85, 1), // 设置按钮背景色
                 foregroundColor: Colors.white, // 设置按钮文字颜色
                 textStyle: const TextStyle(
-                  fontSize: 28, // 设置按钮文字大小
+                  fontSize: 26, // 设置按钮文字大小
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25), // 设置按钮圆角
