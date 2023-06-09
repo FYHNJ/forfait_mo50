@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:forfait_mo50/Profile/profile.dart';
 import './Accueil/accueil.dart';
 import 'Loginpage.dart';
-import 'package:user_library/user_library.dart'; 
+import 'package:user_library/user_library.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,7 +46,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title, required this.user}) : super(key: key);
+  const MyHomePage({Key? key, required this.title, required this.user})
+      : super(key: key);
 
   final String title;
   final User user;
@@ -64,9 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body:  TabBarView(
+        body: TabBarView(
           children: <Widget>[
-            Accueil(user:widget.user),
+            Accueil(user: widget.user),
             const Profile(),
           ],
         ),

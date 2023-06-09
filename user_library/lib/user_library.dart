@@ -9,34 +9,33 @@ class User {
   double waterUsed;
 
   User(
-     {required this.userName, 
-     required this.userFname,
-     required this.password,
-     required this.mail,
-     required this.userNumber,
-     required this.waterUsed});
-
+      {required this.userName,
+      required this.userFname,
+      required this.password,
+      required this.mail,
+      required this.userNumber,
+      required this.waterUsed});
 }
 
 class UserAuthenticator {
   final List<User> users;
 
   UserAuthenticator()
-    : users = [
+      : users = [
           User(
               userName: 'Marc',
               userFname: 'Dupont',
               password: 'forfaio1',
               mail: 'marc@gmail.com',
               userNumber: '06 01 02 03 04',
-              waterUsed:2.0),
+              waterUsed: 40.0),
           User(
               userName: 'Emma',
               userFname: 'Laurent',
               password: 'forfaio2',
               mail: 'emma@gmail.com',
               userNumber: '06 04 03 02 01',
-              waterUsed:2.0),
+              waterUsed: 2.0),
         ];
 
   bool authenticate(String username, String password) {
