@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:forfait_mo50/Loginpage.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -52,7 +51,7 @@ class _Profile extends State<Profile> {
               style:
                   TextStyle(color: Color.fromRGBO(0, 40, 85, 1))), // 设置按钮文字内容
         ),
-        const SizedBox(height: 380),
+        const SizedBox(height: 300),
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
