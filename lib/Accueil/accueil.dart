@@ -195,9 +195,9 @@ class _AccueilState extends State<Accueil> {
                                   const SizedBox(height: 10),
                                   Container(
                                     alignment: Alignment.centerLeft,
-                                    child: const Text(
-                                      '150',
-                                      style: TextStyle(
+                                    child: Text(
+                                      '${_totalWater - widget.user.waterUsed}',
+                                      style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 40,
                                       ),
