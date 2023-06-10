@@ -13,11 +13,18 @@ class Accueil extends StatefulWidget {
 }
 
 class _AccueilState extends State<Accueil> {
-  final double _totalWater = 100.0;
+  final double _totalWaterDay = 10.0;
+  final double _totalWaterMonth = 100;
+  final double _totalWaterYear = 1000;
+  late double _totalWater;
+  late double _waterUsed;
+  String consommation = 'du jour';
 
   @override
   void initState() {
     super.initState();
+    _totalWater = _totalWaterDay;
+    _waterUsed = widget.user.waterUsedDay;
   }
 
   @override
@@ -55,7 +62,13 @@ class _AccueilState extends State<Accueil> {
               children: <Widget>[
                 ElevatedButton(
                   // Button "Jour"
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _totalWater = _totalWaterDay;
+                      _waterUsed = widget.user.waterUsedDay;
+                      consommation = 'du jour';
+                    });
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 1, 29, 59),
                     disabledForegroundColor:
@@ -81,7 +94,13 @@ class _AccueilState extends State<Accueil> {
                 ),
                 ElevatedButton(
                   // Button "Mois"
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _totalWater = _totalWaterMonth;
+                      _waterUsed = widget.user.waterUsedMonth;
+                      consommation = 'du mois';
+                    });
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 1, 29, 59),
                     backgroundColor: const Color.fromARGB(
@@ -103,7 +122,13 @@ class _AccueilState extends State<Accueil> {
                 ),
                 ElevatedButton(
                   // Button "Année"
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _totalWater = _totalWaterYear;
+                      _waterUsed = widget.user.waterUsedYear;
+                      consommation = "de l'année";
+                    });
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 1, 29, 59),
                     backgroundColor: const Color.fromARGB(
@@ -166,9 +191,9 @@ class _AccueilState extends State<Accueil> {
                             fontSize: 33,
                           ),
                         ),
-                        const Text(
-                          'du jour',
-                          style: TextStyle(
+                        Text(
+                          consommation,
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 33,
                           ),
@@ -196,7 +221,7 @@ class _AccueilState extends State<Accueil> {
                                   Container(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      '${_totalWater - widget.user.waterUsed}',
+                                      '${_totalWater - _waterUsed}',
                                       style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 40,
@@ -210,8 +235,7 @@ class _AccueilState extends State<Accueil> {
                                     child: SizedBox(
                                       height: 40, // 设定进度条的高度
                                       child: LinearProgressIndicator(
-                                        value: (_totalWater -
-                                                widget.user.waterUsed) /
+                                        value: (_totalWater - _waterUsed) /
                                             _totalWater,
                                         backgroundColor:
                                             const Color.fromARGB(255, 3, 3, 58),

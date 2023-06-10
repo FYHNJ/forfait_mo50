@@ -6,7 +6,9 @@ class User {
   String password;
   String mail;
   String userNumber;
-  double waterUsed;
+  double waterUsedDay;
+  double waterUsedMonth;
+  double waterUsedYear;
 
   User(
       {required this.userName,
@@ -14,7 +16,9 @@ class User {
       required this.password,
       required this.mail,
       required this.userNumber,
-      required this.waterUsed});
+      required this.waterUsedDay,
+      required this.waterUsedMonth,
+      required this.waterUsedYear});
 }
 
 class UserAuthenticator {
@@ -28,14 +32,18 @@ class UserAuthenticator {
               password: 'forfaio1',
               mail: 'marc@gmail.com',
               userNumber: '06 01 02 03 04',
-              waterUsed: 40.0),
+              waterUsedDay: 5.0,
+              waterUsedMonth: 50,
+              waterUsedYear: 600),
           User(
               userName: 'Emma',
               userFname: 'Laurent',
               password: 'forfaio2',
               mail: 'emma@gmail.com',
               userNumber: '06 04 03 02 01',
-              waterUsed: 2.0),
+              waterUsedDay: 2.0,
+              waterUsedMonth: 20,
+              waterUsedYear: 500),
         ];
 
   bool authenticate(String username, String password) {
