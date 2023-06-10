@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, library_private_types_in_public_api
+// ignore_for_file: file_names, library_private_types_in_public_api, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:forfait_mo50/main.dart';
@@ -60,17 +60,16 @@ class _LoginPageState extends State<LoginPage>
             builder: (context) => MyHomePage(title: 'Forfait', user: user!),
           ),
         );
-        return; // 验证成功，直接返回，不执行后续的错误处理逻辑
+        return;
       }
     }
-    // 处理登录失败的情况
-    // 可以显示错误消息或者其他逻辑
+
     if (username.isEmpty) {
-      errors.add('Please enter user name');
+      errors.add("Veuillez saisir votre nom d'utilisateur");
     } else if (password.isEmpty) {
-      errors.add('Please enter password');
+      errors.add('Veuillez saisir votre mot de passe');
     } else {
-      errors.add('Invalid username or password');
+      errors.add("Nom d'utilisateur ou mot de passe incorrect");
     }
     setState(() {
       _errorMessage = errors.isNotEmpty ? errors.join(',\n ') : null;
@@ -81,56 +80,45 @@ class _LoginPageState extends State<LoginPage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        // Added Center
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.center, // Set mainAxisAlignment to center
-            crossAxisAlignment: CrossAxisAlignment
-                .center, // Change CrossAxisAlignment.start to CrossAxisAlignment.center
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 100),
               Transform.translate(
-                // Added Transform.translate
-                offset: const Offset(0, -90), // Upwards by 50 units
+                offset: const Offset(0, -90),
                 child: Transform.scale(
-                  // Added Transform.scale
-                  scale: 0.85, // Scale by 0.5 times
-                  child: Image.asset('assets/images/2.png'), // Your image
+                  scale: 0.85,
+                  child: Image.asset('assets/images/2.png'),
                 ),
               ),
               Transform.translate(
-                // Added Transform.translate
-                offset: const Offset(0, -50), // Upwards by 50 units
+                offset: const Offset(0, -50),
                 child: Transform.scale(
-                  // Added Transform.scale
-                  scale: 2, // Scale by 1.5 times
-                  child: const Text('Connectez-vous'),
+                  scale: 2,
+                  child: const Text('Connexion'),
                 ),
               ),
               const SizedBox(height: 40),
               TextField(
                 controller: _usernameController,
                 decoration: const InputDecoration(
-                  labelText: 'Username',
+                  labelText: "Nom d'utilisateur",
                 ),
               ),
               TextField(
                 controller: _passwordController,
-                obscureText:
-                    !_isPasswordVisible, // Make the text obscured unless _isPasswordVisible is true
+                obscureText: !_isPasswordVisible,
                 decoration: InputDecoration(
-                  labelText: 'Password',
-                  // Add a suffix icon
+                  labelText: 'Mot de passe',
                   suffixIcon: IconButton(
                     icon: Icon(
-                      // Change the icon based on the password visibility
                       _isPasswordVisible
                           ? Icons.visibility
                           : Icons.visibility_off,
                     ),
-                    // Add an onPressed function to change the visibility when pressed
                     onPressed: () {
                       setState(() {
                         _isPasswordVisible = !_isPasswordVisible;
@@ -146,12 +134,10 @@ class _LoginPageState extends State<LoginPage>
                     onTap: () async {
                       const url =
                           'https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
-                      // ignore: deprecated_member_use
                       if (await canLaunch(url)) {
-                        // ignore: deprecated_member_use
                         await launch(url);
                       } else {
-                        throw 'Could not launch $url';
+                        throw 'Impossible de lancer $url';
                       }
                     },
                     child: const Text(
@@ -167,15 +153,13 @@ class _LoginPageState extends State<LoginPage>
               const SizedBox(height: 20),
               if (_errorMessage != null)
                 Text(
-                  'Error: $_errorMessage',
+                  'Erreur: $_errorMessage',
                   style: const TextStyle(color: Colors.red),
                 ),
               Transform.translate(
-                // Added Transform.translate
-                offset: const Offset(0, 50), // Downwards by 50 units
+                offset: const Offset(0, 50),
                 child: Transform.scale(
-                  // Added Transform.scale
-                  scale: 1.5, // Scale by 1.5 times
+                  scale: 1.5,
                   child: ElevatedButton(
                     onPressed: _login,
                     child: const Text('Connexion'),
@@ -187,16 +171,14 @@ class _LoginPageState extends State<LoginPage>
                 onTap: () async {
                   const url =
                       'https://www.forfaio.fr/douche-economique-ecologique/mon-compte';
-                  // ignore: deprecated_member_use
                   if (await canLaunch(url)) {
-                    // ignore: deprecated_member_use
                     await launch(url);
                   } else {
-                    throw 'Could not launch $url';
+                    throw 'Impossible de lancer $url';
                   }
                 },
                 child: const Text(
-                  'Lien inscription',
+                  "Lien d'inscription",
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     decoration: TextDecoration.underline,

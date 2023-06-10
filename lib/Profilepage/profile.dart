@@ -1,14 +1,15 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:user_library/user_library.dart';
-import 'package:forfait_mo50/Loginpage.dart';
-import 'package:forfait_mo50/Profile/user_profile.dart';
+import 'package:forfait_mo50/Loginpage/Loginpage.dart';
+import 'package:forfait_mo50/Profilepage/user_profile.dart';
 
 class Profile extends StatefulWidget {
   final User user;
   const Profile({Key? key, required this.user}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _Profile createState() => _Profile();
 }
 
@@ -17,7 +18,7 @@ class _Profile extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white, // 设置背景色为白色
+        color: Colors.white,
         child: Stack(
           children: [
             Positioned(
@@ -36,29 +37,30 @@ class _Profile extends State<Profile> {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                  padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).padding.top + 131),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        widget.user.userName,
-                        semanticsLabel: widget.user.userFname,
-                        style: const TextStyle(
-                          fontSize: 34,
-                          color: Color.fromRGBO(0, 40, 85, 1),
-                        ),
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).padding.top + 131),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      widget.user.userName,
+                      semanticsLabel: widget.user.userFname,
+                      style: const TextStyle(
+                        fontSize: 34,
+                        color: Color.fromRGBO(0, 40, 85, 1),
                       ),
-                      const SizedBox(width: 20),
-                      Text(
-                        widget.user.userFname,
-                        style: const TextStyle(
-                          fontSize: 34,
-                          color: Color.fromRGBO(0, 40, 85, 1),
-                        ),
+                    ),
+                    const SizedBox(width: 20),
+                    Text(
+                      widget.user.userFname,
+                      style: const TextStyle(
+                        fontSize: 34,
+                        color: Color.fromRGBO(0, 40, 85, 1),
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Align(
               alignment: Alignment.topCenter,
@@ -78,21 +80,19 @@ class _Profile extends State<Profile> {
                   style: ElevatedButton.styleFrom(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    backgroundColor: Colors.white, // 设置按钮背景色
-                    foregroundColor:
-                        const Color.fromRGBO(0, 40, 85, 1), // 设置按钮文字颜色
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color.fromRGBO(0, 40, 85, 1),
                     textStyle: const TextStyle(
-                      fontSize: 14, // 设置按钮文字大小
+                      fontSize: 14,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25), // 设置按钮圆角
-                      side: const BorderSide(
-                          color: Color.fromRGBO(0, 40, 85, 1)), // 设置按钮边框样式
+                      borderRadius: BorderRadius.circular(25),
+                      side:
+                          const BorderSide(color: Color.fromRGBO(0, 40, 85, 1)),
                     ),
                   ),
-                  child: const Text('Modifier mon profile',
-                      style: TextStyle(
-                          color: Color.fromRGBO(0, 40, 85, 1))), // 设置按钮文字内容
+                  child: const Text('Modifier mon profil',
+                      style: TextStyle(color: Color.fromRGBO(0, 40, 85, 1))),
                 ),
               ),
             ),
@@ -115,7 +115,7 @@ class _Profile extends State<Profile> {
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 24.0), // 设置左边距
+                            padding: const EdgeInsets.only(left: 24.0),
                             child: Image.asset(
                               'assets/images/facture.jpeg',
                               width: 24,
@@ -123,7 +123,7 @@ class _Profile extends State<Profile> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 54.0), // 设置左边距
+                            padding: const EdgeInsets.only(left: 54.0),
                             child: TextButton(
                               onPressed: () {},
                               child: const Text(
@@ -135,8 +135,7 @@ class _Profile extends State<Profile> {
                               ),
                             ),
                           ),
-                          const Spacer(), // 占据剩余空间
-                          // 第三个元素，与屏幕右边缘的距离为 24
+                          const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(right: 24),
                             child: Image.asset(
@@ -165,7 +164,7 @@ class _Profile extends State<Profile> {
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 24.0), // 设置左边距
+                            padding: const EdgeInsets.only(left: 24.0),
                             child: Image.asset(
                               'assets/images/1.jpeg',
                               width: 24,
@@ -173,7 +172,7 @@ class _Profile extends State<Profile> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 54.0), // 设置左边距
+                            padding: const EdgeInsets.only(left: 54.0),
                             child: TextButton(
                               onPressed: () {},
                               child: const Text(
@@ -185,8 +184,7 @@ class _Profile extends State<Profile> {
                               ),
                             ),
                           ),
-                          const Spacer(), // 占据剩余空间
-                          // 第三个元素，与屏幕右边缘的距离为 24
+                          const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(right: 24),
                             child: Image.asset(
@@ -209,7 +207,7 @@ class _Profile extends State<Profile> {
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 24.0), // 设置左边距
+                            padding: const EdgeInsets.only(left: 24.0),
                             child: Image.asset(
                               'assets/images/logout.jpeg',
                               width: 24,
@@ -217,7 +215,7 @@ class _Profile extends State<Profile> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 54.0), // 设置左边距
+                            padding: const EdgeInsets.only(left: 54.0),
                             child: TextButton(
                               onPressed: () {
                                 Navigator.pushReplacement(
@@ -236,8 +234,7 @@ class _Profile extends State<Profile> {
                               ),
                             ),
                           ),
-                          const Spacer(), // 占据剩余空间
-                          // 第三个元素，与屏幕右边缘的距离为 24
+                          const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(right: 24),
                             child: Image.asset(
@@ -263,20 +260,19 @@ class _Profile extends State<Profile> {
                   style: ElevatedButton.styleFrom(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    backgroundColor:
-                        const Color.fromRGBO(0, 40, 85, 1), // 设置按钮背景色
-                    foregroundColor: Colors.white, // 设置按钮文字颜色
+                    backgroundColor: const Color.fromRGBO(0, 40, 85, 1),
+                    foregroundColor: Colors.white,
                     textStyle: const TextStyle(
-                      fontSize: 26, // 设置按钮文字大小
+                      fontSize: 26,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25), // 设置按钮圆角
-                      side: const BorderSide(
-                          color: Color.fromRGBO(0, 40, 85, 1)), // 设置按钮边框样式
+                      borderRadius: BorderRadius.circular(25),
+                      side:
+                          const BorderSide(color: Color.fromRGBO(0, 40, 85, 1)),
                     ),
                   ),
                   child: const Text('Régler mes factures',
-                      style: TextStyle(color: Colors.white)), // 设置按钮文字内容
+                      style: TextStyle(color: Colors.white)),
                 ),
               ),
             ),

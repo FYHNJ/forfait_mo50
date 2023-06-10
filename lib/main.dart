@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:forfait_mo50/Profile/profile.dart';
-import './Accueil/accueil.dart';
-import 'Loginpage.dart';
+import 'package:forfait_mo50/Profilepage/profile.dart';
+import 'Welcomepage/Welcomepage.dart';
+import 'Loginpage/Loginpage.dart';
 import 'package:user_library/user_library.dart';
 
 void main() {
@@ -31,7 +31,6 @@ MaterialColor createMaterialColor(Color color) {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

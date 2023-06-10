@@ -61,7 +61,7 @@ class _AccueilState extends State<Accueil> {
                   .spaceEvenly, // Aligns the row's children evenly distributed along the row
               children: <Widget>[
                 ElevatedButton(
-                  // Button "Jour"
+                  // "Day" Button
                   onPressed: () {
                     setState(() {
                       _totalWater = _totalWaterDay;
@@ -76,14 +76,14 @@ class _AccueilState extends State<Accueil> {
                     disabledBackgroundColor:
                         const Color.fromARGB(255, 1, 29, 59).withOpacity(0.12),
                     backgroundColor: const Color.fromARGB(
-                        255, 244, 246, 248), // This is the color of text
+                        255, 244, 246, 248), // Button's background color
                     shape: RoundedRectangleBorder(
-                      // Shape of the button
+                      // Button's shape
                       borderRadius:
-                          BorderRadius.circular(30), // Roundness of button
+                          BorderRadius.circular(30), // Button's roundness
                     ),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10), // Padding of button
+                        horizontal: 30, vertical: 10), // Button's padding
                     textStyle: const TextStyle(
                       // Text style
                       fontSize: 15, // Font size
@@ -93,7 +93,7 @@ class _AccueilState extends State<Accueil> {
                   child: const Text('Jour'),
                 ),
                 ElevatedButton(
-                  // Button "Mois"
+                  // "Month" Button
                   onPressed: () {
                     setState(() {
                       _totalWater = _totalWaterMonth;
@@ -104,14 +104,14 @@ class _AccueilState extends State<Accueil> {
                   style: ElevatedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 1, 29, 59),
                     backgroundColor: const Color.fromARGB(
-                        255, 244, 246, 248), // This is the color of text
+                        255, 244, 246, 248), // Button's background color
                     shape: RoundedRectangleBorder(
-                      // Shape of the button
+                      // Button's shape
                       borderRadius:
-                          BorderRadius.circular(30), // Roundness of button
+                          BorderRadius.circular(30), // Button's roundness
                     ),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10), // Padding of button
+                        horizontal: 30, vertical: 10), // Button's padding
                     textStyle: const TextStyle(
                       // Text style
                       fontSize: 15, // Font size
@@ -121,7 +121,7 @@ class _AccueilState extends State<Accueil> {
                   child: const Text('Mois'),
                 ),
                 ElevatedButton(
-                  // Button "Année"
+                  // "Year" Button
                   onPressed: () {
                     setState(() {
                       _totalWater = _totalWaterYear;
@@ -132,14 +132,14 @@ class _AccueilState extends State<Accueil> {
                   style: ElevatedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 1, 29, 59),
                     backgroundColor: const Color.fromARGB(
-                        255, 244, 246, 248), // This is the color of text
+                        255, 244, 246, 248), // Button's background color
                     shape: RoundedRectangleBorder(
-                      // Shape of the button
+                      // Button's shape
                       borderRadius:
-                          BorderRadius.circular(30), // Roundness of button
+                          BorderRadius.circular(30), // Button's roundness
                     ),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10), // Padding of button
+                        horizontal: 30, vertical: 10), // Button's padding
                     textStyle: const TextStyle(
                       // Text style
                       fontSize: 15, // Font size
@@ -153,110 +153,111 @@ class _AccueilState extends State<Accueil> {
           ),
         ),
         Transform.translate(
-            offset: const Offset(0, -50),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 0),
-              child: Center(
-                child: Card(
-                  // Card 1
-
-                  elevation: 5, // shadow
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width *
-                        0.9, // 90% of screen width
-                    height: 350,
-                    child: Column(
-                      children: [
-                        Container(
-                          // Green navigation bar
-                          width: 370,
-                          height: 50,
-                          padding: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(235, 69, 199, 177),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
+          offset: const Offset(0, -50),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 0),
+            child: Center(
+              child: Card(
+                // Card 1
+                elevation: 5, // Shadow
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width *
+                      0.9, // 90% of screen width
+                  height: 350,
+                  child: Column(
+                    children: [
+                      Container(
+                        // Green navigation bar
+                        width: 370,
+                        height: 50,
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(235, 69, 199, 177),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 17),
+                      const Text(
+                        'Ma Consommation',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 33,
+                        ),
+                      ),
+                      Text(
+                        consommation,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 33,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Card(
+                          // Card 2
+                          color: Colors.grey[200],
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  child: const Text(
+                                    'Litres restants :',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 22,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    '${_totalWater - _waterUsed}',
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 40,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 17),
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(
+                                          20)), // Sets the border radius
+                                  child: SizedBox(
+                                    height:
+                                        40, // Sets the height of the progress bar
+                                    child: LinearProgressIndicator(
+                                      value: (_totalWater - _waterUsed) /
+                                          _totalWater,
+                                      backgroundColor:
+                                          const Color.fromARGB(255, 3, 3, 58),
+                                      valueColor:
+                                          const AlwaysStoppedAnimation<Color>(
+                                              Color.fromRGBO(219, 128, 17, 1)),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                        const SizedBox(height: 17),
-                        const Text(
-                          'Ma consommation',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 33,
-                          ),
-                        ),
-                        Text(
-                          consommation,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 33,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Card(
-                            // Card 2
-                            color: Colors.grey[200],
-                            child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: const Text(
-                                      'Litres restants:',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 22,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      '${_totalWater - _waterUsed}',
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 40,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 17),
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(20)), // 设定圆角半径
-                                    child: SizedBox(
-                                      height: 40, // 设定进度条的高度
-                                      child: LinearProgressIndicator(
-                                        value: (_totalWater - _waterUsed) /
-                                            _totalWater,
-                                        backgroundColor:
-                                            const Color.fromARGB(255, 3, 3, 58),
-                                        valueColor:
-                                            const AlwaysStoppedAnimation<Color>(
-                                                Color.fromRGBO(
-                                                    219, 128, 17, 1)),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ))
+            ),
+          ),
+        ),
       ],
     );
   }

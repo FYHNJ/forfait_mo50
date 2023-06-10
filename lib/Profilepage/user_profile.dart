@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:user_library/user_library.dart';
 import 'package:forfait_mo50/main.dart';
@@ -7,7 +9,6 @@ class UserProfilePage extends StatefulWidget {
   const UserProfilePage({Key? key, required this.user}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _UserProfilePageState createState() => _UserProfilePageState();
 }
 
@@ -40,7 +41,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Editer mon profile',
+          'Editer mon profil',
           style: TextStyle(
             color: Colors.black,
             fontSize: 14,
@@ -51,7 +52,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
             'assets/images/return.jpeg',
             width: 24,
             height: 24,
-          ), // 设置图片
+          ),
           onPressed: () {
             Navigator.pushReplacement(
               context,
@@ -97,7 +98,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: 30,
                       ),
                       const Text(
-                        'Nom              ',
+                        'Nom             ',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -136,7 +137,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: 30,
                       ),
                       const Text(
-                        'Prénom         ',
+                        'Prénom        ',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -175,7 +176,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: 30,
                       ),
                       const Text(
-                        'Email             ',
+                        'Email            ',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -213,7 +214,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: 30,
                       ),
                       const Text(
-                        'Télephone     ',
+                        'Télephone    ',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
