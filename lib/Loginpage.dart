@@ -43,9 +43,8 @@ class _LoginPageState extends State<LoginPage>
     String password = _passwordController.text;
     List<String> errors = [];
     bool isAuthenticated = authenticator.authenticate(username, password);
-
+    User? user;
     if (isAuthenticated) {
-      User? user;
       try {
         user = authenticator.users.firstWhere(
           (u) => u.userName == username && u.password == password,
@@ -61,24 +60,20 @@ class _LoginPageState extends State<LoginPage>
             builder: (context) => MyHomePage(title: 'Forfait', user: user!),
           ),
         );
+        return; // 验证成功，直接返回，不执行后续的错误处理逻辑
       }
     }
     // 处理登录失败的情况
     // 可以显示错误消息或者其他逻辑
     if (username.isEmpty) {
-      errors.add('please enter user name');
+      errors.add('Please enter user name');
+    } else if (password.isEmpty) {
+      errors.add('Please enter password');
+    } else {
+      errors.add('Invalid username or password');
     }
-
-    if (password.isEmpty) {
-      errors.add('please enter password');
-    }
-
-    if (errors.isEmpty) {
-      errors.add('invalid username or password');
-    }
-
     setState(() {
-      _errorMessage = errors.join(',\n ');
+      _errorMessage = errors.isNotEmpty ? errors.join(',\n ') : null;
     });
   }
 
