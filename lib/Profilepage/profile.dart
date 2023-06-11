@@ -254,7 +254,7 @@ class _Profile extends State<Profile> {
               alignment: Alignment.topCenter,
               child: Padding(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top + 621),
+                    top: MediaQuery.of(context).padding.top + 551),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
